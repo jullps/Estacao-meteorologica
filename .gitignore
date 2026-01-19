@@ -1,0 +1,41 @@
+# Maven
+target/
+.m2/
+*.jar
+*.war
+*.ear
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+.classpath
+.project
+.settings/
+.DS_Store
+
+# Build
+*.class
+*.log
+*.ctxt
+
+# Sensitive Configuration Files
+**/src/main/resources/META-INF/persistence.xml
+persistence.xml
+
+# Gradle
+.gradle/
+build/
+
+# Node modules (if used)
+node_modules/
+
+# Environment
+.env
+.env.local
+
+# OS
+Thumbs.db
+.DS_Store
