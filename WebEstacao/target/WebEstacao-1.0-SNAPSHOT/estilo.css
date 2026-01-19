@@ -1,0 +1,83 @@
+ body {
+            background:url(https://img.freepik.com/premium-photo/low-angle-view-clouds-sky_1048944-3020902.jpg) rgba(0, 0, 0, 0.15) no-repeat fixed ;            
+            background-size: cover;
+            padding: 20px;
+        }
+        .card-claro {
+            background: rgba(255, 255, 255, 0.90);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+        }
+        .card-sensores {
+            background: #1c4d79;
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            height: 100%;
+            width: 100%;
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+        }
+       
+        .sensor-icone {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .sensor-valor {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .sensor-titulo {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        .container-grafico {
+            min-height: 450px;
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+        .container-grafico iframe {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* Limit the chart width so it appears centered and not too wide on large screens */
+        .container-grafico .ui-chart,
+        .container-grafico canvas,
+        .container-grafico .chart-wrapper {
+            width: 100%;
+            /* allow chart to use full column width */
+            max-width: none;
+            height: 100%;
+            margin: 0 auto; /* ensure centered if block-level */
+            display: block;
+        }
+
+        .ultimo-atualizacao {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 5px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .status-online {
+            background-color: #28a745;
+        }
+        .status-offline {
+            background-color: #dc3545;
+        }
+

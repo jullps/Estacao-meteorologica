@@ -1,0 +1,16 @@
+modelo\SensorEntity.class
+modelo\Serial.class
+apresentacao\frmPrincipal$4.class
+apresentacao\frmPrincipal$2.class
+apresentacao\frmPrincipal.class
+DAL\Conexao.class
+apresentacao\frmPrincipal$3.class
+com\mycompany\estacao\Estacao.class
+apresentacao\frmPrincipal$4$1.class
+modelo\LeituraEntity.class
+DAL\SensorDAO.class
+modelo\Estaticos.class
+apresentacao\frmPrincipal$1.class
+modelo\Controle.class
+DAL\LeituraDAO.class
+modelo\Validacao.class

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:p="http://primefaces.org/ui"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+  <h:head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estação Meteorológica</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="#{request.contextPath}/estilo.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </h:head>
+  <h:body>
+    <div class="container-fluid">
+      <div class="row mb-4">
+        <div class="col-12">
+          <div class="card-claro d-flex">
+            <h:form id="topoForm">
+              <div
+                class="d-flex justify-content-between align-items-center col-lg-9 col-md-7 col-sm-12 p-3"
+              >
+                <div>
+                  <h1 class="mb-3">
+                    <i class="bi bi-brightness-alt-high-fill"></i> Estação
+                    Meteorológica
+                  </h1>
+                  <p class="ultimo-atualizacao mb-0">
+                    <span
+                      class="status-indicator status-online"
+                      id="statusIndicator"
+                    ></span>
+                    <h:outputText
+                      id="ultimaAtualizacao"
+                      value="#{leituraBean.timestamp}"
+                    />
+                  </p>
+                </div>
+              </div>
+            </h:form>
+            <div
+              class="d-flex justify-content-between align-items-center col-lg-3 col-md-5 d-md-block d-sm-none p-3"
+            >
+              <div>
+                <h5 class="mb-0">Por:</h5>
+                <p class="mb-0">Caio Cesar Soares Lourenço</p>
+                <p class="mb-0">Carol Naomi Shimizu Celestino</p>
+                <p class="mb-0">Guilherme Camargo Corrêa</p>
+                <p class="mb-0">Julia Teixeira Lopes</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-lg-3">
+          <h:form id="sensoresForm">
+            <div class="d-flex flex-column justify-content-center gap-3 p-3">
+              <div class="card-sensores">
+                <i class="bi bi-thermometer-half sensor-icone"></i>
+                <div class="sensor-valor">
+                  <h:outputText
+                    id="temperatura"
+                    value="#{leituraBean.temperatura}"
+                  />
+                </div>
+                <div class="sensor-titulo">Temperatura (°C)</div>
+              </div>
+
+              <div class="card-sensores">
+                <i class="bi bi-droplet-half sensor-icone"></i>
+                <div class="sensor-valor">
+                  <h:outputText
+                    id="umidade"
+                    value="#{leituraBean.umidade}"
+                  />
+                </div>
+                <div class="sensor-titulo">Umidade (%)</div>
+              </div>
+
+              <div class="card-sensores">
+                <i class="bi bi-cloud-drizzle-fill sensor-icone"></i>
+                <div class="sensor-valor">
+                  <h:outputText
+                    id="precipitacao"
+                    value="#{leituraBean.precipitacao}"
+                  />
+                </div>
+                <div class="sensor-titulo">Precipitação (%)</div>
+              </div>
+            </div>
+          </h:form>
+        </div>
+
+        <div class="col-12 col-lg-9 pt-lg-4">
+          <div class="card-claro">
+            <h3 class="p-4">
+              <i class="bi bi-graph-up"></i> Histórico de Leituras
+            </h3>
+            <div
+              class="container-grafico d-flex align-items-center justify-content-center"
+            >
+              <h:form id="formGraf" class="w-100">
+                <h:panelGroup id="chartPanel">
+                  <p:chart id="chart" type="line" model="#{leituraBean.model}" style="width:100%;height:100%;" styleClass="d-block" />
+                </h:panelGroup>
+              </h:form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <!-- Poll centralizado: atualiza gráfico e painéis de leitura a cada 10s -->
+      <h:form id="pollForm" style="display:none">
+  <p:poll interval="10" listener="#{leituraBean.atualizarTudo}" update="formGraf topoForm sensoresForm" />
+      </h:form>
+  </h:body>
+</html>

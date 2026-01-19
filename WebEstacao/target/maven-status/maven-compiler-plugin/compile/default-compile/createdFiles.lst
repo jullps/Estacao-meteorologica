@@ -1,0 +1,9 @@
+com\mycompany\webestacao\JakartaRestConfiguration.class
+modelo\ValoresLeituraDTO.class
+beans\LeituraBean.class
+com\mycompany\webestacao\resources\JakartaEE8Resource.class
+modelo\Sensor.class
+modelo\Leitura.class
+DAL\Conexao.class
+modelo\Controle.class
+DAL\LeituraDAO.class
